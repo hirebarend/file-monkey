@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+- task: Npm@1
+  displayName: 'npm run build'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'run build'
+- task: Npm@1
+  displayName: 'npm publish'
+  inputs:
+    command: publish
+    verbose: false
+    publishEndpoint: 'Npm (hirebarend)'
