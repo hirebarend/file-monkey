@@ -5,11 +5,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: npmAuthenticate@0
-  displayName: 'npm Authenticate .npmrc'
-  inputs:
-    workingFile: .npmrc
-    customEndpoint: 'Npm (hirebarend)'
 - task: Npm@1
   displayName: 'npm install'
   inputs:
@@ -25,5 +20,4 @@ steps:
   inputs:
     command: publish
     verbose: false
-    publishRegistry: useFeed
-    publishFeed: '6e7b639b-6337-4cf3-b0ba-e9fcc07be159'
+    publishEndpoint: 'Npm (hirebarend)'
