@@ -25,4 +25,5 @@ steps:
   inputs:
     command: publish
     verbose: false
-    publishEndpoint: 'Npm (hirebarend)'
+    publishRegistry: useFeed
+    publishFeed: '6e7b639b-6337-4cf3-b0ba-e9fcc07be159'
