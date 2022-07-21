@@ -5,6 +5,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: npmAuthenticate@0
+  displayName: 'npm Authenticate .npmrc'
+  inputs:
+    workingFile: .npmrc
+    customEndpoint: 'Npm (hirebarend)'
 - task: Npm@1
   displayName: 'npm install'
   inputs:
