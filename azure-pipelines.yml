@@ -20,4 +20,3 @@ steps:
   inputs:
     command: publish
     verbose: false
-    publishEndpoint: 'Npm (hirebarend)'
