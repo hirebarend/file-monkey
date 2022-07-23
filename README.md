@@ -31,7 +31,7 @@ To get your free API credentials, sign up for a File Monkey account here: [https
 ```js
 import { FileMonkey } from 'file-monkey';
 
-const fileMonkey = FileMonkey('<username>', '<password>');
+const fileMonkey = FileMonkey('<username>');
 
 const htmlInputElement = document.getElementById("html-input-element");
 
