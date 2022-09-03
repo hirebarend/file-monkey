@@ -44,7 +44,8 @@ async function onChange(username: string, event: Event) {
 function post(
   username: string,
   collectionId: string,
-  file: File
+  file: File,
+  tags: Array<string> = []
 ): Promise<{
   collectionId: string;
   contentType: string;
@@ -98,6 +99,9 @@ function post(
                 'Content-Type': file.type,
                 'X-Collection-ID': collectionId,
                 'X-Name': file.name,
+              },
+              params: {
+                tags: [collectionId, ...tags],
               },
             }
           );
