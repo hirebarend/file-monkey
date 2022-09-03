@@ -1,13 +1,13 @@
 import axios from 'axios';
 import * as uuid from 'uuid';
 
-export function FileMonkey(username: string) {
+export function FileMonkey(username: string, tags: Array<string> = []) {
   return {
-    onChange: (event: Event) => onChange(username, event),
+    onChange: (event: Event) => onChange(username, tags, event),
   };
 }
 
-async function onChange(username: string, event: Event) {
+async function onChange(username: string, tags: Array<string>, event: Event) {
   if (!event.target) {
     return;
   }
@@ -26,6 +26,7 @@ async function onChange(username: string, event: Event) {
       id: string;
       name: string;
       size: number;
+      tags: Array<string>;
       tenantId: string;
       url: string;
     }>,
@@ -33,7 +34,7 @@ async function onChange(username: string, event: Event) {
   };
 
   for (const file of htmlInputElement.files) {
-    const result = await post(username, collection.id, file);
+    const result = await post(username, collection.id, file, tags);
 
     collection.files.push(result);
   }
@@ -53,6 +54,7 @@ function post(
   id: string;
   name: string;
   size: number;
+  tags: Array<string>;
   tenantId: string;
   url: string;
 }> {
@@ -65,6 +67,7 @@ function post(
         id: string;
         name: string;
         size: number;
+        tags: Array<string>;
         tenantId: string;
         url: string;
       }) => void,
@@ -85,6 +88,7 @@ function post(
             id: string;
             name: string;
             size: number;
+            tags: Array<string>;
             tenantId: string;
             url: string;
           }>(
