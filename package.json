@@ -1,6 +1,6 @@
 {
   "name": "file-monkey",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Simplify file uploads for your application using our File API",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
