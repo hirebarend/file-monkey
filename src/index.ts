@@ -9,13 +9,13 @@ export function FileMonkey(username: string, tags: Array<string> = []) {
 
 async function onChange(username: string, tags: Array<string>, event: Event) {
   if (!event.target) {
-    return;
+    return null;
   }
 
   const htmlInputElement = event.target as HTMLInputElement;
 
-  if (!htmlInputElement.files) {
-    return;
+  if (!htmlInputElement.files || !htmlInputElement.files.length) {
+    return null;
   }
 
   const collection = {
